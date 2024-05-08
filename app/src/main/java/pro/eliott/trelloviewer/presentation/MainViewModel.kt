@@ -1,10 +1,16 @@
 package pro.eliott.trelloviewer.presentation
 
+import android.app.Application
+import android.content.Intent
+import android.net.Uri
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
+import androidx.wear.remote.interactions.RemoteActivityHelper
+import com.google.android.gms.wearable.NodeClient
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -46,6 +52,18 @@ class MainViewModel(private val repository: TaskManagementRepository) : ViewMode
                 )
             }
         }.start()
+    }
+
+    fun launchRemoteIntent(){
+        /*NodeClient.
+        val remoteActivityHelper = RemoteActivityHelper(application.applicationContext)
+
+        val result = remoteActivityHelper.startRemoteActivity(
+            Intent(Intent.ACTION_VIEW)
+                .setData(
+                    Uri.parse("http://play.google.com/store/apps/details?id=com.example.myapp"))
+                .addCategory(Intent.CATEGORY_BROWSABLE),
+            nodeId)*/
     }
 
     companion object {
